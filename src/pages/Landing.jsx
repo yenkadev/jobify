@@ -1,33 +1,25 @@
-import Wrapper from "../assets/wrappers/LandingPage";
-import main from "../assets/images/main.svg";
-import { Link } from "react-router-dom";
-import { Logo } from "../components";
+import { Link, Form } from "react-router-dom";
+import { FormRow, Logo, SubmitBtn } from "../components";
+import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
 
-const Landing = () => {
+const Login = () => {
   return (
     <Wrapper>
-      <nav>
-        <Link to="/">
-          <Logo />
-        </Link>
-      </nav>
-      <div className="container page">
-        <div className="info">
-          <h1>
-            job <span>tracking</span> app
-          </h1>
-          <p>This is description</p>
-          <Link to="/register" className="btn register-link">
+      <Form method="post" className="form">
+        <Logo />
+        <h4>login</h4>
+        <FormRow type="email" name="email" />
+        <FormRow type="password" name="password" />
+        <SubmitBtn />
+        <p>
+          Not a member yet?
+          <Link to="/register" className="member-btn">
             Register
           </Link>
-          <Link to="/login" className="btn ">
-            Login
-          </Link>
-        </div>
-        <img src={main} alt="Job hunt" className="img main-img" />
-      </div>
+        </p>
+      </Form>
     </Wrapper>
   );
 };
 
-export default Landing;
+export default Login;
